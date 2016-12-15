@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "4.6"
+  - "6.9"
+  - "7.2"
+services:
+  - mongodb
+cache:
+  directories:
+  - node_modules
+git:
+  depth: 3
+after_script:
+  - yarn report-coverage

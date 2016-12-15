@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "250494",
+    "database": "express_sequelize_es7_rest_api",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "250494",
+    "database": "express_sequelize_es7_rest_api",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "250494",
+    "database": "express_sequelize_es7_rest_api",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "5432"
+  }
+}
