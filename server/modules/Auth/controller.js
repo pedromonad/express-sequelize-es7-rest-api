@@ -13,20 +13,21 @@ const models = require('../../models/index');
 async function login(req, res, next) {
     try {
         const data = await models.User
-                        .find({ username: req.body.username, password: req.body.password });
-
-        if(data){
-            const token = jwt.sign({ username: data.username }, config.jwtSecret);
-            
-            return res.json({
-                token,
-                username: data.username
-            });
-        }
-        
+                        .find({ where:{ username: req.body.username, password: req.body.password }});
     } catch (err) {
         next(err);
     }
+    
+    if(data){
+        const token = jwt.sign({ username: data.username }, config.jwtSecret);
+        
+        return res.json({
+            token,
+            username: data
+        });
+    }
+        
+    
 }
 
 /**
