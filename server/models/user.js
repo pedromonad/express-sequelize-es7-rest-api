@@ -23,15 +23,6 @@ module.exports = function(sequelize, DataTypes) {
    
   });
 
-  /*
-  User.beforeCreate(function(model, options, cb) {
-     bcrypt.compare(pw, model.password, function(err, isMatch) {
-        if (err) {
-          return cb(err);
-        }
-        cb(null, isMatch);
-      });
-  });*/
   
   return User;
 };

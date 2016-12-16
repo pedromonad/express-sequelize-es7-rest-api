@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('../../../config/env');
 const models = require('../../models/index');
+const bcrypt = require('bcrypt');
 
 /**
  * Returns jwt token if valid username and password is provided
@@ -12,22 +13,29 @@ const models = require('../../models/index');
  */
 async function login(req, res, next) {
     try {
+       
         const data = await models.User
-                        .find({ where:{ username: req.body.username, password: req.body.password }});
+                        .find({ where:{ username: req.body.username }});
+     
+        if(data != null && comparePassword(req.body.password, data.password) ) {
+            const token = jwt.sign({ username: data.username }, config.jwtSecret);
+            
+            return res.json({
+                token,
+                username: data.username
+            });
+        }
+
+        return res.json({
+                success: false
+            });
     } catch (err) {
         next(err);
-    }
-    
-    if(data){
-        const token = jwt.sign({ username: data.username }, config.jwtSecret);
-        
-        return res.json({
-            token,
-            username: data
-        });
-    }
-        
-    
+    } 
+}
+
+function comparePassword(reqPassword, password) {
+    return bcrypt.compareSync(reqPassword, password);
 }
 
 /**
