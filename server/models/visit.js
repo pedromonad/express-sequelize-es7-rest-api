@@ -1,5 +1,6 @@
 'use strict';
-module.exports = function(sequelize, DataTypes) {
+
+function visitSchema(sequelize, DataTypes) {
   var Visit = sequelize.define('Visit', {
         description: DataTypes.STRING
   }, {
@@ -11,4 +12,6 @@ module.exports = function(sequelize, DataTypes) {
   });
   
   return Visit;
-};
+}
+
+export default visitSchema;

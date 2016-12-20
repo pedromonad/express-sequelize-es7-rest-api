@@ -8,34 +8,29 @@ const jwtAuth = expressJwt({ secret: config.jwtSecret });
 
 router.route('/')
   /** GET /api/clients - Get list of clients */
-  .get(ClientCtrl.list)
+  .get(jwtAuth, ClientCtrl.list)
 
   /** POST /api/clients - Create new client */
-  .post(validate(paramValidation.createClient), 
-      ClientCtrl.create);
+  .post(jwtAuth, validate(paramValidation.createClient), ClientCtrl.create);
 
 router.route('/:clientId')
   /** GET /api/clients/:clientId - Get client */
-  .get(ClientCtrl.get)
+  .get(jwtAuth, ClientCtrl.get)
 
   /** PUT /api/clients/:clientId - Update client */
-  .put(
-      validate(paramValidation.updateClient), 
-      ClientCtrl.update)
+  .put(jwtAuth, validate(paramValidation.updateClient), ClientCtrl.update)
 
   /** DELETE /api/clients/:clientId - Delete client */
-  .delete(ClientCtrl.remove);
+  .delete(jwtAuth, ClientCtrl.remove);
 
 
 router.route('/:clientId/comments')
-  .post(
-       validate(paramValidation.createComment),
-       ClientCtrl.createComment)
+  .post(jwtAuth, validate(paramValidation.createComment), ClientCtrl.createComment)
 
-  .get(ClientCtrl.getComments);
+  .get(jwtAuth, ClientCtrl.getCommentsByClientId);
 
 router.route('/:clientId/comments/:commentId')  
-  .delete(ClientCtrl.removeComment);
+  .delete(jwtAuth, ClientCtrl.removeComment);
 
 
 /** Load client when API with clientId route parameter is hit */

@@ -1,7 +1,7 @@
 'use strict';
 const bcrypt = require('bcrypt');
 
-module.exports = function(sequelize, DataTypes) {
+function userSchema(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     username: DataTypes.STRING,
     password: DataTypes.STRING
@@ -25,4 +25,6 @@ module.exports = function(sequelize, DataTypes) {
 
   
   return User;
-};
+}
+
+export default userSchema;

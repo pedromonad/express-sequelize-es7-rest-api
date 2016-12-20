@@ -15,7 +15,7 @@ describe('## User APIs', () => {
   describe('# POST /apiv1/users', () => {
     it('should create a new user', async () => {
 
-        let res = await request(app)
+        const res = await request(app)
           .post(`/apiv1/users`)
           .set('content-type', 'application/json')
           .send(user);
@@ -29,7 +29,7 @@ describe('## User APIs', () => {
 
   describe('# GET /apiv1/users/:userId', () => {
     it('should get user details', async () => {
-        let res = await request(app)
+        const res = await request(app)
             .get(`/apiv1/users/${user.id}`)
             .set('content-type', 'application/json')
 
@@ -38,7 +38,7 @@ describe('## User APIs', () => {
     });
 
     it('should report error with message - Not found, when user does not exists', async () => {
-        let res = await request(app)
+        const res = await request(app)
           .get('/apiv1/users/0')
           .set('content-type', 'application/json')
 
@@ -54,7 +54,7 @@ describe('## User APIs', () => {
       userEdit.username = 'kk';
       userEdit.password = 'kk';
 
-      let res = await request(app)
+      const res = await request(app)
           .put(`/apiv1/users/${user.id}`)
           .set('content-type', 'application/json')
           .send(userEdit);
@@ -68,7 +68,7 @@ describe('## User APIs', () => {
 
   describe('# GET /apiv1/users/', () => {
     it('should get all users', async () => {
-      let res = await request(app)
+      const res = await request(app)
             .get(`/apiv1/users`)
             .set('content-type', 'application/json');
 
@@ -81,7 +81,7 @@ describe('## User APIs', () => {
   describe('# DELETE /apiv1/users/', () => {
     it('should delete user', async () => {
 
-      let res = await request(app)
+      const res = await request(app)
           .delete(`/apiv1/users/${user.id}`)
           .set('content-type', 'application/json');
 

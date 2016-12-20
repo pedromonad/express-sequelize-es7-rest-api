@@ -1,5 +1,6 @@
 'use strict';
-module.exports = function(sequelize, DataTypes) {
+
+function clientSchema(sequelize, DataTypes) {
   var Client = sequelize.define('Client', {
         name: DataTypes.STRING,
         lastName: DataTypes.STRING,
@@ -24,4 +25,6 @@ module.exports = function(sequelize, DataTypes) {
   });
   
   return Client;
-};
+}
+
+export default clientSchema;

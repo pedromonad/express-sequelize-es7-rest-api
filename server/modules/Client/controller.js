@@ -154,14 +154,13 @@ async function remove(req, res, next) {
     }
 }
 
-
 /**
  * Load comments and append to req.
  */
-async function getComments(req, res, next) {
+async function getCommentsByClientId(req, res, next) {
     try {
-        const client = await Client.get(req.params.clientId);
-        let data = client.comments;
+        const data = await models.Visit
+                        .findAll({ where: { ClientId: req.params.clientId } });
         res.json({success: true, data});
     } catch (err) {
         next(err);
@@ -176,16 +175,13 @@ async function getComments(req, res, next) {
  */
 async function createComment(req, res, next) {
     try {
-        const client = await Client.get(req.params.clientId);
+        
         const comment = {
             description: req.body.description,
+            ClientId: req.params.clientId
         };
         
-        client.comments.push(comment);
-        let comments = req.client.comments;
-
-        let commentsSaved = await client.save();
-        let data = commentsSaved.comments.pop();
+        const data = await models.Visit.create(comment);
         res.json({success: true, data });
     } catch (err) {
         next(err);
@@ -195,13 +191,12 @@ async function createComment(req, res, next) {
 
 /**
  * Delete comment.
- * @returns {Client}
+ * @returns {Comment}
  */
 async function removeComment(req, res, next) {
     try {
-        const client = await Client.get(req.params.clientId);
-        client.comments.pull({ _id: req.params.commentId });
-        let data = await client.save();
+        const data = await models.Visit
+                            .destroy({ where: { id: req.params.commentId } });
         res.json({success: true, data});
     } catch (err) {
         next(err);
@@ -210,4 +205,4 @@ async function removeComment(req, res, next) {
 
 
 
-export { load, list, get, create, update, remove, removeComment, createComment, getComments };
+export { load, list, get, create, update, remove, removeComment, createComment, getCommentsByClientId };

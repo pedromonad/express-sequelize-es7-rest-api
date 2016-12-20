@@ -19,16 +19,11 @@ async function login(req, res, next) {
      
         if(data != null && comparePassword(req.body.password, data.password) ) {
             const token = jwt.sign({ username: data.username }, config.jwtSecret);
-            
-            return res.json({
-                token,
-                username: data.username
-            });
+            return res.json({ token, username: data.username });
         }
+        
+        return res.json({ success: false });
 
-        return res.json({
-                success: false
-            });
     } catch (err) {
         next(err);
     } 

@@ -19,31 +19,4 @@ describe('## Misc', () => {
         .catch(done);
     });
   });
-
-  describe('# Error Handling', () => {
-    it('should handle mongoose CastError - Cast to ObjectId failed', (done) => {
-      request(app)
-        .get('/apiv1/users/56z787zzz67fc')
-        .expect(httpStatus.INTERNAL_SERVER_ERROR)
-        .then((res) => {
-          expect(res.body.message).to.equal('Internal Server Error');
-          done();
-        })
-        .catch(done);
-    });
-/*
-    it('should handle express validation error - username is required', (done) => {
-      request(app)
-        .post('/apiv1/users')
-        .send({
-          password: '1234567890'
-        })
-        .expect(httpStatus.BAD_REQUEST)
-        .then((res) => {
-          expect(res.body.message).to.equal('"username" is required');
-          done();
-        })
-        .catch(done);
-    });*/
-  });
 });

@@ -8,22 +8,22 @@ const jwtAuth = expressJwt({ secret: config.jwtSecret });
 
 router.route('/')
   /** GET /api/users - Get list of users */
-  .get(UserCtrl.list)
+  .get(jwtAuth, UserCtrl.list)
 
   /** POST /api/users - Create new user */
   //validate(paramValidation.createUser),
-  .post(UserCtrl.create);
+  .post(jwtAuth, UserCtrl.create);
 
 router.route('/:userId')
   /** GET /api/users/:userId - Get user */
-  .get(UserCtrl.get)
+  .get(jwtAuth, UserCtrl.get)
 
   /** PUT /api/users/:userId - Update user */
   //validate(paramValidation.updateUser)
-  .put(UserCtrl.update)
+  .put(jwtAuth, UserCtrl.update)
 
   /** DELETE /api/users/:userId - Delete user */
-  .delete(UserCtrl.remove);
+  .delete(jwtAuth, UserCtrl.remove);
 
 /** Load user when API with userId route parameter is hit */
 //router.param('userId', UserCtrl.load);

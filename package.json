@@ -1,7 +1,7 @@
 {
-  "name": "express-mongoose-es7-rest-api",
+  "name": "express-sequelize-es7-rest-api",
   "version": "1.0.0",
-  "description": "A Boilerplate application for building REST APIs using express, mongoose in ES7 with code coverage",
+  "description": "A Boilerplate application for building REST APIs using express, sequelize in ES7 with code coverage",
   "author": "Pedro Barros <pedrobarrostech@gmail.com>",
   "main": "index.js",
   "private": false,
@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:pedrobarrostech/express-mongoose-es7-rest-api.git"
+    "url": "git@github.com:pedrobarrostech/express-sequelize-es7-rest-api.git"
   },
   "keywords": [
     "express",
     "node",
     "node.js",
-    "mongodb",
-    "mongoose",
+    "postgresql",
+    "sequelize",
     "es7",
     "mocha",
     "istanbul",

@@ -1,6 +1,6 @@
 'use strict';
 
-const models = require('../../models/index');
+import models from '../../models/index';
 
 /**
 * GET /
