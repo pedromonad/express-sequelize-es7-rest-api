@@ -24,13 +24,13 @@ router.route('/:clientId')
   .delete(jwtAuth, ClientCtrl.remove);
 
 
-router.route('/:clientId/comments')
-  .post(jwtAuth, validate(paramValidation.createComment), ClientCtrl.createComment)
+router.route('/:clientId/schedules')
+  .post(jwtAuth, validate(paramValidation.createSchedule), ClientCtrl.createSchedule)
 
-  .get(jwtAuth, ClientCtrl.getCommentsByClientId);
+  .get(jwtAuth, ClientCtrl.getSchedulesByClientId);
 
-router.route('/:clientId/comments/:commentId')  
-  .delete(jwtAuth, ClientCtrl.removeComment);
+router.route('/:clientId/schedules/:scheduleId')  
+  .delete(jwtAuth, ClientCtrl.removeSchedule);
 
 
 /** Load client when API with clientId route parameter is hit */

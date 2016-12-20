@@ -7,7 +7,7 @@ const models = require('../../models/index');
  */
 async function getComments(req, res, next) {
     try {
-        const data = await models.Visit.findAll();
+        const data = await models.Schedule.findAll();
         res.json({success: true, data});
     } catch (err) {
         next(err);

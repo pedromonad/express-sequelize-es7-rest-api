@@ -8,9 +8,9 @@ const validations = {
     }
   },
 
-  createComment: {
+  createSchedule: {
     body: {
-      description: Joi.string().required()
+      title: Joi.string().required()
     }
   },
 

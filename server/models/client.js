@@ -19,7 +19,7 @@ function clientSchema(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Client.hasMany(models.Visit);
+        models.Client.hasMany(models.Schedule);
       }
     }
   });

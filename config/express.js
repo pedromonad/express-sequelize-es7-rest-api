@@ -16,7 +16,7 @@ import APIError from '../server/helpers/APIError';
 const clientRoutes = require('../server/modules/Client/routes');
 const userRoutes = require('../server/modules/User/routes');
 const authRoutes = require('../server/modules/Auth/routes');
-const visitRoutes = require('../server/modules/Visit/routes');
+const scheduleRoutes = require('../server/modules/Schedule/routes');
 const app = express();
 
 if (config.env === 'development') {
@@ -57,7 +57,7 @@ if (config.env === 'development') {
 ///////////////////////////////////////////////////////////
 app.use('/apiv1/clients', clientRoutes);
 app.use('/apiv1/users', userRoutes);
-app.use('/apiv1/visits', visitRoutes);
+app.use('/apiv1/schedules', scheduleRoutes);
 app.use('/apiv1/auth', authRoutes);
 
 // if error is not an instanceOf APIError, convert it.

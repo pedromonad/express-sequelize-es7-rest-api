@@ -155,12 +155,12 @@ async function remove(req, res, next) {
 }
 
 /**
- * Load comments and append to req.
+ * Load schedules and append to req.
  */
-async function getCommentsByClientId(req, res, next) {
+async function getSchedulesByClientId(req, res, next) {
     try {
-        const data = await models.Visit
-                        .findAll({ where: { ClientId: req.params.clientId } });
+        const data = await models.Schedule
+                        .findAll({ where: { clientId: req.params.clientId } });
         res.json({success: true, data});
     } catch (err) {
         next(err);
@@ -169,19 +169,21 @@ async function getCommentsByClientId(req, res, next) {
 
 
 /**
- * Create new comment
- * @property {string} req.body.description - The visit description of client.
+ * Create new schedule
+ * @property {string} req.body.description - The schedule description of client.
  * @returns {Client}
  */
-async function createComment(req, res, next) {
+async function createSchedule(req, res, next) {
     try {
         
-        const comment = {
+        const schedule = {
             description: req.body.description,
-            ClientId: req.params.clientId
+            clientId: req.params.clientId,
+            start: req.body.start,
+            end: req.body.end
         };
         
-        const data = await models.Visit.create(comment);
+        const data = await models.Schedule.create(schedule);
         res.json({success: true, data });
     } catch (err) {
         next(err);
@@ -190,13 +192,13 @@ async function createComment(req, res, next) {
 
 
 /**
- * Delete comment.
- * @returns {Comment}
+ * Delete schedule.
+ * @returns {Schedule}
  */
-async function removeComment(req, res, next) {
+async function removeSchedule(req, res, next) {
     try {
-        const data = await models.Visit
-                            .destroy({ where: { id: req.params.commentId } });
+        const data = await models.Schedule
+                            .destroy({ where: { id: req.params.scheduleId } });
         res.json({success: true, data});
     } catch (err) {
         next(err);
@@ -205,4 +207,4 @@ async function removeComment(req, res, next) {
 
 
 
-export { load, list, get, create, update, remove, removeComment, createComment, getCommentsByClientId };
+export { load, list, get, create, update, remove, removeSchedule, createSchedule, getSchedulesByClientId };
