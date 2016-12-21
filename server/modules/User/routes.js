@@ -12,7 +12,7 @@ router.route('/')
 
   /** POST /api/users - Create new user */
   //validate(paramValidation.createUser),
-  .post(jwtAuth, UserCtrl.create);
+  .post(UserCtrl.create);
 
 router.route('/:userId')
   /** GET /api/users/:userId - Get user */

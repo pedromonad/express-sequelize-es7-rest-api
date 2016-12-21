@@ -32,6 +32,7 @@ async function get(req, res, next) {
     }
 }
 
+
 /**
  * Get client
  * @returns {Client}
@@ -65,7 +66,6 @@ async function load(req, res, next, id) {
  * @property {string} req.body.info - The info of client.
  * @returns {Client}
 */
-
 async function create(req, res, next) {
     try {
         const client = {
@@ -110,7 +110,6 @@ async function create(req, res, next) {
  * @property {string} req.body.info - The info of client.
  * @returns {Client}
  */
-
 async function update(req, res, next) {
     try {
         const client = await models.Client
@@ -154,6 +153,7 @@ async function remove(req, res, next) {
     }
 }
 
+
 /**
  * Load schedules and append to req.
  */
@@ -175,9 +175,8 @@ async function getSchedulesByClientId(req, res, next) {
  */
 async function createSchedule(req, res, next) {
     try {
-        
         const schedule = {
-            description: req.body.description,
+            title: req.body.title,
             clientId: req.params.clientId,
             start: req.body.start,
             end: req.body.end

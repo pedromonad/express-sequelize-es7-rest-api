@@ -16,12 +16,6 @@ function clientSchema(sequelize, DataTypes) {
         email: DataTypes.STRING,
         birthday: DataTypes.STRING,
         info: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        models.Client.hasMany(models.Schedule);
-      }
-    }
   });
   
   return Client;
