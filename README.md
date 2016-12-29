@@ -1,10 +1,10 @@
-# Express & mongoose REST API Boilerplate in ES7
+# Express & mongoose REST API Boilerplate in ES7 
 ## Getting Started
 
 Clone the repo:
 ```sh
-git clone git@github.com:pedrobarrostech/express-mongoose-es7-rest-api.git
-cd express-mongoose-es7-rest-api
+git clone git@github.com:pedrobarrostech/express-sequelize-es7-rest-api.git
+cd express-sequelize-es7-rest-api
 ```
 
 Install yarn:
