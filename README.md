@@ -1,4 +1,4 @@
-# Express & mongoose REST API Boilerplate in ES7 
+# Express & sequelize REST API Boilerplate in ES7 
 ## Getting Started
 
 Clone the repo:
@@ -23,7 +23,7 @@ Start server:
 yarn start
 
 # Selectively set DEBUG env var to get logs
-DEBUG=express-mongoose-es7-rest-api:* yarn start
+DEBUG=express-sequelize-es7-rest-api:* yarn start
 ```
 Refer [debug](https://www.npmjs.com/package/debug) to know how to selectively turn on logs.
 
