@@ -1,5 +1,5 @@
 # Express & sequelize REST API Boilerplate in ES7 
-## Getting Started
+## Getting Started 
 
 Clone the repo:
 ```sh
