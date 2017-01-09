@@ -74,5 +74,3 @@ gulp
 # Use any process manager to start your services
 4. pm2 start dist/index.js
 ```
-
-# express-sequelize-es7-rest-api
