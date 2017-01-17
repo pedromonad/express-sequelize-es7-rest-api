@@ -1,10 +1,11 @@
-# Express & mongoose REST API Boilerplate in ES7
-## Getting Started
+# Express & sequelize REST API Boilerplate in ES7 
+ 
+## Getting Started 
 
 Clone the repo:
 ```sh
-git clone git@github.com:pedrobarrostech/express-mongoose-es7-rest-api.git
-cd express-mongoose-es7-rest-api
+git clone git@github.com:pedrobarrostech/express-sequelize-es7-rest-api.git
+cd express-sequelize-es7-rest-api
 ```
 
 Install yarn:
@@ -23,7 +24,7 @@ Start server:
 yarn start
 
 # Selectively set DEBUG env var to get logs
-DEBUG=express-mongoose-es7-rest-api:* yarn start
+DEBUG=express-sequelize-es7-rest-api:* yarn start
 ```
 Refer [debug](https://www.npmjs.com/package/debug) to know how to selectively turn on logs.
 
@@ -73,5 +74,3 @@ gulp
 # Use any process manager to start your services
 4. pm2 start dist/index.js
 ```
-
-# express-sequelize-es7-rest-api
