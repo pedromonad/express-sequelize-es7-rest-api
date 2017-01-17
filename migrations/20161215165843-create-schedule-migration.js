@@ -22,6 +22,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      price: {
+        allowNull: false,
+        type: Sequelize.FLOAT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

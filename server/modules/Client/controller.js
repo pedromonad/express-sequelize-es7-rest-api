@@ -179,7 +179,8 @@ async function createSchedule(req, res, next) {
             title: req.body.title,
             clientId: req.params.clientId,
             start: req.body.start,
-            end: req.body.end
+            end: req.body.end,
+            price: req.body.price
         };
         
         const data = await models.Schedule.create(schedule);
