@@ -1,7 +1,6 @@
 # Express & sequelize REST API Boilerplate in ES7 
  
 ## Getting Started 
-
 Clone the repo:
 ```sh
 git clone git@github.com:pedrobarrostech/express-sequelize-es7-rest-api.git
